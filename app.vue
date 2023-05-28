@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <NuxtLayout :name="comingsoon"></NuxtLayout>
+    <NuxtPage></NuxtPage>
   </div>
 </template>
 
@@ -9,7 +9,3 @@
     max-width: 100%;
   }
 </style>
-
-<script setup>
-  const comingsoon = "comingsoon";
-</script>
