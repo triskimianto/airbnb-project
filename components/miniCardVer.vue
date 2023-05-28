@@ -1,6 +1,8 @@
 <template>
     <div class="mx-auto w-[188px]">
-        <img class="w-[188px] h-[240px] rounded-[4px]" :src="src" :alt="alt">
+        <div class="w-[188px] h-[240px] overflow-hidden">
+            <img class=" rounded-[4px] block hover:scale-110" :src="src" :alt="alt">
+        </div>
         <div class="my-2">
             <h1 class="text-[10px] text-start text-[#767676] font-bold uppercase">{{ country }}</h1>
             <h1 class="text-[16px] text-start text-[#484848] font-bold mt-1">{{ title }}</h1>

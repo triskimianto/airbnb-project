@@ -1,6 +1,8 @@
 <template>
     <div class="w-full md:w-[289px]">
-        <img class="w-full md:w-[289px] h-[200px] rounded-[4px]" :src="src" :alt="alt">
+        <div class="w-[289px] h-[200px] overflow-hidden">
+            <img class="w-full rounded-[4px] hover:scale-110" :src="src" :alt="alt">
+        </div>        
         <div class="flex flex-row justify-between items-center mt-2">
             <div class="flex flex-row items-center gap-3">
                 <TagMini />

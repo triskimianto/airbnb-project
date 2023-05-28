@@ -15,7 +15,7 @@
                     <div class="absolute z-10 mt-12 md:mt-[65.87px] ml-20 md:ml-[503px]">
                         <img class="block w-1/2 md:w-[104.5px] md:h-[112.27px] ml-12 md:ml-[47.66px]" src="/icons/airbnb-plus.png" alt="">
                         <div class="mt-[37.87px]">
-                            <SecondaryCTA />
+                            <SecondaryCTA :btnTitle="btnTitle" />
                         </div>
                     </div>
                     <img class="w-full h-[310px] rounded-[4px] object-cover" src="/images/airbnb-plus-1.png" alt="">
@@ -55,8 +55,13 @@
 </template>
 
 <script setup>
+    useHead({
+        title: "Airbnb"
+    });
+
     const header = "header";
     const footer = "footer";
+    const btnTitle = "Découvrir des logements";
 
     let firstrow = [
         {
