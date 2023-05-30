@@ -53,7 +53,7 @@
                         <label class="text-[12px] text-[#484848] font-bold uppercase" for="Départ">
                             Départ
                         </label>
-                        <input type="time" class="w-full h-[48px] border rounded-r-[2px] text-[#484848] placeholder-[#8F8F8F] text-[16px] font-normal mt-2 px-4 py-4 " placeholder="Départ">
+                        <input type="date" class="w-full h-[48px] border rounded-r-[2px] text-[#484848] placeholder-[#8F8F8F] text-[16px] font-normal mt-2 px-4 py-4 " placeholder="Départ">
                     </div>
                 </div>
                 <div class="w-full mt-4">

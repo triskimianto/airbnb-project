@@ -5,7 +5,7 @@
             <section id="firstrow">
                 <h1 class="text-[24px] text-[#484848] font-bold">Explorer Airbnb</h1>
                 <div class="grid grid-cols-1 md:grid-cols-3 md:gap-4 mt-6 gap-y-4 md:gap-y-0">
-                    <MiniCardHor v-for="f in firstrow" :key="f.id" :src="f.src" :alt="f.alt" :title="f.title" />                    
+                    <MiniCardHor v-for="f in firstrow" :key="f.id" :to="'/rooms/${f.id}'" :src="f.src" :alt="f.alt" :title="f.title" />                    
                 </div>                
             </section>
             <section id="secondrow" class="mt-[88px]">
@@ -26,7 +26,7 @@
                 <h1 class="text-[24px] text-[#484848] font-bold">Découvrez les aventures Airbnb</h1>
                 <p class="w-full md:w-[571px] leading-[18.75px] text-[16px] text-[#484848] font-light mt-2">Voyages de plusieurs jours organisés par des experts locaux avec activités, repas et logements compris</p>
                 <div class="grid grid-cols-1 md:grid-cols-6 md:gap-4 gap-y-4 md:gap-y-0 mt-6">
-                    <mini-card-ver v-for="t in thirdrow" :key="t.id" :src="t.src" :alt="t.alt" :country="t.country" :title="t.title" :desc="t.desc" :rating="t.rating" />
+                    <mini-card-ver v-for="t in thirdrow" :to="'/rooms/'+t.id" :key="t.id" :src="t.src" :alt="t.alt" :country="t.country" :title="t.title" :desc="t.desc" :rating="t.rating" />
                 </div>
             </section>
             <section id="fourthrow" class="mt-[88px]">

@@ -1,5 +1,5 @@
 <template>
-    <div class="mx-auto w-[188px]">
+    <NuxtLink :to="to" target="_blank" class="mx-auto w-[188px]">
         <div class="w-[188px] h-[240px] overflow-hidden">
             <img class=" rounded-[4px] block hover:scale-110" :src="src" :alt="alt">
         </div>
@@ -12,11 +12,13 @@
             <h1 class="text-[12px] text-start text-[#008489] font-bold">{{ rating }}</h1>
             <img class="w-[8px] h-[8px] ml-1" src="/icons/star-green.png" alt="star">
         </div>
-    </div>
+    </NuxtLink>
 </template>
 
 <script setup>
     const props = defineProps({
+        to: String,
+        id: Number,
         src: String,
         alt: String,
         country: String,
