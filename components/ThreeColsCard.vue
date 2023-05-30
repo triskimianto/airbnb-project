@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full md:w-[289px]">
+    <NuxtLink :to="to" class="w-full md:w-[289px]">
         <div class="w-[289px] h-[200px] overflow-hidden">
             <img class="w-full rounded-[4px] hover:scale-110" :src="src" :alt="alt">
         </div>        
@@ -14,12 +14,13 @@
             </div>            
         </div>
         <h1 class="text-start text-[14px] text-[#484848] font-normal mt-2">{{ desc }}</h1>
-    </div>
+    </NuxtLink>
     
 </template>
 
 <script setup>
     const props = defineProps({
+        to: String,
         src: String,
         alt: String,
         city: String,

@@ -2,7 +2,9 @@
     <div>
         <!-- navbar -->        
         <nav class="parallax fixed flex flex-row justify-between items-center w-full px-6 py-4 z-10 text-white">
-            <img class="w-[28.65px] h-[30.73px]" :src="navBrandSrc" alt="nav-brand">
+            <NuxtLink to="/">
+                <img class="w-[28.65px] h-[30.73px]" :src="navBrandSrc" alt="nav-brand">
+            </NuxtLink>
             <div class="hidden md:flex item-center space-x-6">
                 <NuxtLink to="/" class="hover:text-[#FF5A5F]">Français (FR)</NuxtLink>
                 <NuxtLink to="/" class="hover:text-[#FF5A5F]">EUR €</NuxtLink>

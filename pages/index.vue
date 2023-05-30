@@ -2,10 +2,10 @@
     <div>
         <NuxtLayout :name="header"></NuxtLayout>
         <div class="mx-4 md:mx-20 my-[88px]">
-            <section id="firstrow">
+            <section id="categories">
                 <h1 class="text-[24px] text-[#484848] font-bold">Explorer Airbnb</h1>
                 <div class="grid grid-cols-1 md:grid-cols-3 md:gap-4 mt-6 gap-y-4 md:gap-y-0">
-                    <MiniCardHor v-for="f in firstrow" :key="f.id" :to="'/rooms/${f.id}'" :src="f.src" :alt="f.alt" :title="f.title" />                    
+                    <MiniCardHor v-for="f in firstrow" :key="f.id" :to="f.to" :src="f.src" :alt="f.alt" :title="f.title" />                    
                 </div>                
             </section>
             <section id="secondrow" class="mt-[88px]">
@@ -22,24 +22,24 @@
                     <div class="absolute inset-0 bg-black opacity-[15%] rounded-[4px]"></div>  
                 </div>
             </section>
-            <section id="thirdrow" class="mt-[88px]">
+            <section id="houses" class="mt-[88px]">
                 <h1 class="text-[24px] text-[#484848] font-bold">Découvrez les aventures Airbnb</h1>
                 <p class="w-full md:w-[571px] leading-[18.75px] text-[16px] text-[#484848] font-light mt-2">Voyages de plusieurs jours organisés par des experts locaux avec activités, repas et logements compris</p>
-                <div class="grid grid-cols-1 md:grid-cols-6 md:gap-4 gap-y-4 md:gap-y-0 mt-6">
-                    <mini-card-ver v-for="t in thirdrow" :to="'/rooms/'+t.id" :key="t.id" :src="t.src" :alt="t.alt" :country="t.country" :title="t.title" :desc="t.desc" :rating="t.rating" />
+                <div class="grid grid-cols-1 md:grid-cols-6 md:gap-4 gap-y-4 md:gap-y-0 mt-6">                    
+                    <mini-card-ver v-for="r in houses" :key="r.id" :to="`/rooms/${r.id}`" :src="r.src" :alt="r.alt" :country="r.country" :title="r.title" :desc="r.desc" :rating="r.rating" />                                           
                 </div>
             </section>
-            <section id="fourthrow" class="mt-[88px]">
+            <section id="experiences" class="mt-[88px]">
                 <h1 class="text-[24px] text-[#484848] font-bold">Logements dans le monde entier</h1>            
-                <div class="grid grid-cols-1 md:grid-cols-4 md:gap-x-4 gap-y-4 md:gap-y-8 mt-[51px]">
-                    <ThreeColsCard v-for="f in fourthrow" :key="f.id" :src="f.src" :alt="f.alt" :city="f.city" :rating="f.rating" :desc="f.desc" />
+                <div class="grid grid-cols-1 md:grid-cols-4 md:gap-x-4 gap-y-4 md:gap-y-8 mt-[51px]">            
+                    <ThreeColsCard v-for="r in experiences" :key="r.id" :to="`/rooms/${r.id}`" :src="r.src" :alt="r.alt" :city="r.city" :rating="r.rating" :desc="r.desc" />                    
                 </div>
             </section>
-            <section id="fifthrow" class="mt-[88px]">
+            <section id="adventures" class="mt-[88px]">
                 <h1 class="text-[24px] text-[#484848] font-bold">Expériences très bien notées</h1>
                 <p class="w-full md:w-[571px] leading-[18.75px] text-[16px] text-[#484848] font-light mt-2">Voyages de plusieurs jours organisés par des experts locaux avec activités, repas et logements compris</p>
                 <div class="grid grid-cols-1 md:grid-cols-6 md:gap-4 mt-6">
-                    <mini-card-ver v-for="f in fifthrow" :key="f.id" :src="f.src" :alt="f.alt" :country="f.country" :title="f.title" :desc="f.desc" :rating="f.rating" />
+                    <mini-card-ver v-for="r in adventures" :key="r.id" :to="`/rooms/${r.id}`" :src="r.src" :alt="r.alt" :country="r.country" :title="r.title" :desc="r.desc" :rating="r.rating" />
                 </div>
             </section>
             <section id="sixthrow" class="mt-[88px]">
@@ -66,25 +66,28 @@
     let firstrow = [
         {
             id: 1,
+            to: "#houses",
             src: "/images/cat-1.png",
-            alt: "Logements",
-            title: "Logements",
+            alt: "Houses",
+            title: "Houses",
         },
         {
             id: 2,
+            to: "#experiences",
             src: "/images/cat-2.png",
-            alt: "Expériences",
-            title: "Expériences",
+            alt: "Experiences",
+            title: "Experiences",
         },
         {
             id: 3,
+            to: "#adventures",
             src: "/images/cat-3.png",
-            alt: "Aventures",
-            title: "Aventures",
+            alt: "Adventures",
+            title: "Adventures",
         }
     ];
 
-    let thirdrow = [
+    let rooms = [
         {
             id: 1,
             src: "/images/discover-1.png",
@@ -93,6 +96,7 @@
             title: "2 Nights PACKAGE All Inclusive",
             desc: "À partir de 577€/personne - 3 jours",
             rating: "5.0",
+            category: "Houses",
         },
         {
             id: 2,
@@ -102,7 +106,9 @@
             title: "2 Nights PACKAGE All Inclusive",
             desc: "À partir de 577€/personne - 3 jours",
             rating: "5.0",
-        },{
+            category: "Houses",
+        },
+        {
             id: 3,
             src: "/images/discover-3.png",
             alt: "2 Nights PACKAGE All Inclusive",
@@ -110,7 +116,9 @@
             title: "2 Nights PACKAGE All Inclusive",
             desc: "À partir de 577€/personne - 3 jours",
             rating: "5.0",
-        },{
+            category: "Houses",
+        },
+        {
             id: 4,
             src: "/images/discover-4.png",
             alt: "2 Nights PACKAGE All Inclusive",
@@ -118,7 +126,9 @@
             title: "2 Nights PACKAGE All Inclusive",
             desc: "À partir de 577€/personne - 3 jours",
             rating: "5.0",
-        },{
+            category: "Houses",
+        },
+        {
             id: 5,
             src: "/images/discover-5.png",
             alt: "2 Nights PACKAGE All Inclusive",
@@ -126,7 +136,9 @@
             title: "2 Nights PACKAGE All Inclusive",
             desc: "À partir de 577€/personne - 3 jours",
             rating: "5.0",
-        },{
+            category: "Houses",
+        },
+        {
             id: 6,
             src: "/images/discover-6.png",
             alt: "2 Nights PACKAGE All Inclusive",
@@ -134,128 +146,145 @@
             title: "2 Nights PACKAGE All Inclusive",
             desc: "À partir de 577€/personne - 3 jours",
             rating: "5.0",
+            category: "Houses",
         },
-    ];
-
-    let fourthrow = [
         {
-            id: 1,
+            id: 7,
             src: "/images/accomodations-1.png",
             alt: "À partir de 577€/personne - 3 jours",
             city: "Toledo",
             rating: "4,98",
             desc: "À partir de 577€/personne - 3 jours",
+            category: "Experiences",
         },
         {
-            id: 2,
+            id: 8,
             src: "/images/accomodations-2.png",
             alt: "À partir de 577€/personne - 3 jours",
             city: "Mesa",
             rating: "4,98",
             desc: "À partir de 577€/personne - 3 jours",
+            category: "Experiences",
         },
         {
-            id: 3,
+            id: 9,
             src: "/images/accomodations-3.png",
             alt: "À partir de 577€/personne - 3 jours",
             city: "Utica",
             rating: "4,98",
             desc: "À partir de 577€/personne - 3 jours",
+            category: "Experiences",
         },
         {
-            id: 4,
+            id: 10,
             src: "/images/accomodations-4.png",
             alt: "À partir de 577€/personne - 3 jours",
             city: "South Bend",
             rating: "4,98",
             desc: "À partir de 577€/personne - 3 jours",
+            category: "Experiences",
         },
         {
-            id: 5,
+            id: 11,
             src: "/images/accomodations-5.png",
             alt: "À partir de 577€/personne - 3 jours",
             city: "Toledo",
             rating: "4,98",
             desc: "À partir de 577€/personne - 3 jours",
+            category: "Experiences",
         },
         {
-            id: 6,
+            id: 12,
             src: "/images/accomodations-6.png",
             alt: "À partir de 577€/personne - 3 jours",
             city: "Mesa",
             rating: "4,98",
             desc: "À partir de 577€/personne - 3 jours",
+            category: "Experiences",
         },
         {
-            id: 7,
+            id: 13,
             src: "/images/accomodations-7.png",
             alt: "À partir de 577€/personne - 3 jours",
             city: "Utica",
             rating: "4,98",
             desc: "À partir de 577€/personne - 3 jours",
+            category: "Experiences",
         },
         {
-            id: 8,
+            id: 14,
             src: "/images/accomodations-8.png",
             alt: "À partir de 577€/personne - 3 jours",
             city: "South Bend",
             rating: "4,98",
             desc: "À partir de 577€/personne - 3 jours",
+            category: "Experiences",
         },
-    ];
-
-    let fifthrow = [
         {
-            id: 1,
+            id: 15,
             src: "/images/experiences-1.png",
             alt: "2 Nights PACKAGE All Inclusive",
             country: "Cayman Islands",
             title: "2 Nights PACKAGE All Inclusive",
             desc: "À partir de 577€/personne - 3 jours",
             rating: "5.0",
+            category: "Adventures",
         },
         {
-            id: 2,
+            id: 16,
             src: "/images/experiences-2.png",
             alt: "2 Nights PACKAGE All Inclusive",
             country: "Uruguay",
             title: "2 Nights PACKAGE All Inclusive",
             desc: "À partir de 577€/personne - 3 jours",
             rating: "5.0",
-        },{
-            id: 3,
+            category: "Adventures",
+        },
+        {
+            id: 17,
             src: "/images/experiences-3.png",
             alt: "2 Nights PACKAGE All Inclusive",
             country: "Iceland",
             title: "2 Nights PACKAGE All Inclusive",
             desc: "À partir de 577€/personne - 3 jours",
             rating: "5.0",
-        },{
-            id: 4,
+            category: "Adventures",
+        },
+        {
+            id: 18,
             src: "/images/experiences-4.png",
             alt: "2 Nights PACKAGE All Inclusive",
             country: "Mongolia",
             title: "2 Nights PACKAGE All Inclusive",
             desc: "À partir de 577€/personne - 3 jours",
             rating: "5.0",
-        },{
-            id: 5,
+            category: "Adventures",
+        },
+        {
+            id: 19,
             src: "/images/experiences-5.png",
             alt: "2 Nights PACKAGE All Inclusive",
             country: "Bahrain",
             title: "2 Nights PACKAGE All Inclusive",
             desc: "À partir de 577€/personne - 3 jours",
             rating: "5.0",
-        },{
-            id: 6,
+            category: "Adventures",
+        },
+        {
+            id: 20,
             src: "/images/experiences-6.png",
             alt: "2 Nights PACKAGE All Inclusive",
             country: "Bosnia and Herzegovina",
             title: "2 Nights PACKAGE All Inclusive",
             desc: "À partir de 577€/personne - 3 jours",
             rating: "5.0",
+            category: "Adventures",
         },
     ];
+
+    const houses = rooms.filter((r) => r.category.toLowerCase() == "houses");
+    const experiences = rooms.filter((r) => r.category.toLowerCase() == "experiences");
+    const adventures = rooms.filter((r) => r.category.toLowerCase() == "adventures");
 
     let sixthrow = [
         {
