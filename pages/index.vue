@@ -1,7 +1,7 @@
 <template>
     <div>
         <NuxtLayout :name="header"></NuxtLayout>
-        <div class="mx-4 md:mx-20 my-[88px]">
+        <div class="w-[388px] md:w-[1206px] mx-auto my-[88px]">
             <section id="categories">
                 <h1 class="text-[24px] text-[#484848] font-bold">Explorer Airbnb</h1>
                 <div class="grid grid-cols-1 md:grid-cols-3 md:gap-4 mt-6 gap-y-4 md:gap-y-0">
@@ -20,6 +20,14 @@
                     </div>
                     <img class="w-full h-[310px] rounded-[4px] object-cover" src="/images/airbnb-plus-1.png" alt="">
                     <div class="absolute inset-0 bg-black opacity-[15%] rounded-[4px]"></div>  
+                </div>
+            </section>
+            <!-- data fetch from api -->
+            <section id="products" class="mt-[88px]">
+                <h1 class="text-[24px] text-[#484848] font-bold">Products</h1>
+                <p class="w-full md:w-[571px] leading-[18.75px] text-[16px] text-[#484848] font-light mt-2">Jelajahi daftar produk kami dan temukan solusi yang sempurna untuk meningkatkan gaya hidup Anda.</p>
+                <div class="grid grid-cols-1 md:grid-cols-6 md:gap-4 gap-y-4 md:gap-y-0 mt-6">                    
+                    <mini-card-ver v-for="p in products" :key="p.id" :to="`#`" :src="p.thumbnails" :alt="p.title" :country="p.category" :title="p.title" :desc="p.description" :rating="p.rating" />                                           
                 </div>
             </section>
             <section id="houses" class="mt-[88px]">
@@ -55,6 +63,9 @@
 </template>
 
 <script setup>
+    const { data: products } = await useFetch('https://dummyjson.com/products/category/smartphones');
+    console.log(products);
+
     useHead({
         title: "Airbnb"
     });
