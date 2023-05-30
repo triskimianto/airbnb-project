@@ -50,7 +50,7 @@
                 <div class="mr-[100px]">
                     <div class="flex flex-row justify-between items-center">
                         <h1>Kamar di rumah. Tuan rumah: Nama</h1>
-                        <img class="w-10 h-10 rounded-full" src="/Rectangle 4.png" alt="">
+                        <img class="w-10 h-10 rounded-full" :src="selectedId.src" alt="">
                     </div>
                     <div class="flex flex-row justify-between items-center mt-4">
                         <div class="w-[206px] h-[88px] border rounded-[12px] px-4 py-6">
