@@ -12,9 +12,9 @@
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
                                 <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
                             </svg>
-                            <h1 class="text-[14px] font-normal">{{ selectedId.rating }}</h1>
+                            <h1 class="text-[14px] font-normal">{{ selectedId.rating.rate }}</h1>
                             <span>·</span>
-                            <NuxtLink to="#" class="text-[14px] font-normal underline">2 Ulasan</NuxtLink>                            
+                            <NuxtLink to="#" class="text-[14px] font-normal underline">{{ selectedId.rating.count }} Ulasan</NuxtLink>                            
                         </div>
                         <span>·</span>        
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3">
@@ -22,7 +22,7 @@
                         </svg>
                         <h1 class="text-[14px] font-light">HosTeladan</h1>
                         <span>·</span>
-                        <NuxtLink to="#" class="text-[14px] font-normal underline">{{ selectedId.country }}</NuxtLink>
+                        <NuxtLink to="#" class="text-[14px] font-normal underline">{{ selectedId.category }}</NuxtLink>
                     </div>
                     <div class="flex justify-between items-center gap-x-5">
                         <NuxtLink to="#" class="flex flex-row items-center gap-x-1">
@@ -41,26 +41,26 @@
                 </div>
                 <div class="flex w-full max-h-[334px] justify-between items-center rounded-[12px] overflow-hidden gap-x-2 mt-7">
                     <div class="w-full md:w-1/2 h-[334px] overflow-hidden">
-                        <img :src="selectedId.src" class="h-[334px] w-full object-cover" alt="" />
+                        <img :src="selectedId.image" class="h-[334px] w-full object-cover" alt="" />
                     </div>
                     <div class="hidden md:flex flex-col w-1/2 h-[334px] justify-between gap-y-2">
                         <div class="flex gap-x-2">
-                            <img :src="selectedId.src" class="w-1/2 h-[163px] object-cover" alt="">
-                            <img :src="selectedId.src" class="w-1/2 h-[163px] object-cover" alt="">
+                            <img :src="selectedId.image" class="w-1/2 h-[163px] object-cover" alt="">
+                            <img :src="selectedId.image" class="w-1/2 h-[163px] object-cover" alt="">
                         </div>
                         <div class="flex gap-x-2">
-                            <img :src="selectedId.src" class="w-1/2 h-[163px] object-cover" alt="">
-                            <img :src="selectedId.src" class="w-1/2 h-[163px] object-cover" alt="">
+                            <img :src="selectedId.image" class="w-1/2 h-[163px] object-cover" alt="">
+                            <img :src="selectedId.image" class="w-1/2 h-[163px] object-cover" alt="">
                         </div>
                     </div>
                 </div>            
             </section>
-            <section class="flex flex-row justify-between items-center mt-12">
+            <section class="flex flex-row justify-between mt-12">
                 <div class="w-2/3">
                     <div class="mr-[100px]">
                         <div class="flex flex-row justify-between items-center">
                             <h1 class="text-[24px] font-normal">Kamar di rumah. Tuan rumah: Nama</h1>
-                            <img class="w-10 h-10 rounded-full" :src="selectedId.src" alt="">
+                            <img class="w-10 h-10 rounded-full" :src="selectedId.image" alt="">
                         </div>
                         <div class="flex flex-row justify-between items-center mt-4">
                             <div class="w-[206px] h-[88px] border borde-[#c4c4c4] rounded-[12px] px-4 py-4">
@@ -202,13 +202,25 @@
                 <div class="w-1/3">
                     <div class="w-full bg-white border rounded-[12px] shadow-lg">
                         <div class="px-6 py-[30px]">
-                            <div class="flex flex-row justify-between items-end">
-                                <h1 class="text-[24px]">577€<span class="text-[18px]">malam</span></h1>    
-                                <div class="flex gap-x-2">
-                                    <h1>{{ selectedId.rating }}</h1>
+                            <div class="flex flex-row-reverse justify-between items-end">                                
+                                <div class="flex gap-x-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 my-[2px]">
+                                        <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
+                                    </svg>
+                                    <h1 class="text-[16px] font-light">{{ selectedId.rating.rate }}</h1>
                                     <span>·</span>
-                                    <NuxtLink to="#">2 Ulasan</NuxtLink>
+                                    <NuxtLink to="#" class="text-[16px] font-light">{{ selectedId.rating.count }} Ulasan</NuxtLink>                                    
                                 </div>                        
+                                <h1 class="text-[24px] font-medium">Rp {{ formatPrice(selectedId.price * 14996) }}<span class="text-[16px] font-light">malam</span></h1>    
+                            </div>
+                            <div class="flex mt-6">
+                                form 1
+                            </div>
+                            <div class="flex mt-6">
+                                form 2
+                            </div>
+                            <div class="mt-4">
+                                <MainCTA :to="`/book/${id}`" :btnTitle="btnTitle" />
                             </div>
                         </div>
                     </div>
@@ -217,9 +229,9 @@
             <section>
                 <hr class="h-px my-6 bg-[#c4c4c4] border-0">
                 <div class="flex gap-x-2">
-                    <h1>{{ selectedId.rating }}</h1>
+                    <h1>{{ selectedId.rating.rate }}</h1>
                     <span>·</span>
-                    <NuxtLink to="#">2 Ulasan</NuxtLink>
+                    <NuxtLink to="#">{{ selectedId.rating.count }} Ulasan</NuxtLink>
                 </div>   
                 <div>
                     review section
@@ -244,207 +256,20 @@
 </template>
 
 <script setup>
-    import navbarsrc from "/icons/airbnb-nav-red.png";
-
-    let rooms = [
-        {
-            id: 1,
-            src: "/images/discover-1.png",
-            alt: "2 Nights PACKAGE All Inclusive",
-            country: "Cayman Islands",
-            title: "2 Nights PACKAGE All Inclusive",
-            desc: "À partir de 577€/personne - 3 jours",
-            rating: "5.0",
-            category: "Houses",
-        },
-        {
-            id: 2,
-            src: "/images/discover-2.png",
-            alt: "2 Nights PACKAGE All Inclusive",
-            country: "Uruguay",
-            title: "2 Nights PACKAGE All Inclusive",
-            desc: "À partir de 577€/personne - 3 jours",
-            rating: "5.0",
-            category: "Houses",
-        },
-        {
-            id: 3,
-            src: "/images/discover-3.png",
-            alt: "2 Nights PACKAGE All Inclusive",
-            country: "Iceland",
-            title: "2 Nights PACKAGE All Inclusive",
-            desc: "À partir de 577€/personne - 3 jours",
-            rating: "5.0",
-            category: "Houses",
-        },
-        {
-            id: 4,
-            src: "/images/discover-4.png",
-            alt: "2 Nights PACKAGE All Inclusive",
-            country: "Mongolia",
-            title: "2 Nights PACKAGE All Inclusive",
-            desc: "À partir de 577€/personne - 3 jours",
-            rating: "5.0",
-            category: "Houses",
-        },
-        {
-            id: 5,
-            src: "/images/discover-5.png",
-            alt: "2 Nights PACKAGE All Inclusive",
-            country: "Bahrain",
-            title: "2 Nights PACKAGE All Inclusive",
-            desc: "À partir de 577€/personne - 3 jours",
-            rating: "5.0",
-            category: "Houses",
-        },
-        {
-            id: 6,
-            src: "/images/discover-6.png",
-            alt: "2 Nights PACKAGE All Inclusive",
-            country: "Bosnia and Herzegovina",
-            title: "2 Nights PACKAGE All Inclusive",
-            desc: "À partir de 577€/personne - 3 jours",
-            rating: "5.0",
-            category: "Houses",
-        },
-        {
-            id: 7,
-            src: "/images/accomodations-1.png",
-            alt: "À partir de 577€/personne - 3 jours",
-            city: "Toledo",
-            rating: "4,98",
-            desc: "À partir de 577€/personne - 3 jours",
-            category: "Experiences",
-        },
-        {
-            id: 8,
-            src: "/images/accomodations-2.png",
-            alt: "À partir de 577€/personne - 3 jours",
-            city: "Mesa",
-            rating: "4,98",
-            desc: "À partir de 577€/personne - 3 jours",
-            category: "Experiences",
-        },
-        {
-            id: 9,
-            src: "/images/accomodations-3.png",
-            alt: "À partir de 577€/personne - 3 jours",
-            city: "Utica",
-            rating: "4,98",
-            desc: "À partir de 577€/personne - 3 jours",
-            category: "Experiences",
-        },
-        {
-            id: 10,
-            src: "/images/accomodations-4.png",
-            alt: "À partir de 577€/personne - 3 jours",
-            city: "South Bend",
-            rating: "4,98",
-            desc: "À partir de 577€/personne - 3 jours",
-            category: "Experiences",
-        },
-        {
-            id: 11,
-            src: "/images/accomodations-5.png",
-            alt: "À partir de 577€/personne - 3 jours",
-            city: "Toledo",
-            rating: "4,98",
-            desc: "À partir de 577€/personne - 3 jours",
-            category: "Experiences",
-        },
-        {
-            id: 12,
-            src: "/images/accomodations-6.png",
-            alt: "À partir de 577€/personne - 3 jours",
-            city: "Mesa",
-            rating: "4,98",
-            desc: "À partir de 577€/personne - 3 jours",
-            category: "Experiences",
-        },
-        {
-            id: 13,
-            src: "/images/accomodations-7.png",
-            alt: "À partir de 577€/personne - 3 jours",
-            city: "Utica",
-            rating: "4,98",
-            desc: "À partir de 577€/personne - 3 jours",
-            category: "Experiences",
-        },
-        {
-            id: 14,
-            src: "/images/accomodations-8.png",
-            alt: "À partir de 577€/personne - 3 jours",
-            city: "South Bend",
-            rating: "4,98",
-            desc: "À partir de 577€/personne - 3 jours",
-            category: "Experiences",
-        },
-        {
-            id: 15,
-            src: "/images/experiences-1.png",
-            alt: "2 Nights PACKAGE All Inclusive",
-            country: "Cayman Islands",
-            title: "2 Nights PACKAGE All Inclusive",
-            desc: "À partir de 577€/personne - 3 jours",
-            rating: "5.0",
-            category: "Adventures",
-        },
-        {
-            id: 16,
-            src: "/images/experiences-2.png",
-            alt: "2 Nights PACKAGE All Inclusive",
-            country: "Uruguay",
-            title: "2 Nights PACKAGE All Inclusive",
-            desc: "À partir de 577€/personne - 3 jours",
-            rating: "5.0",
-            category: "Adventures",
-        },
-        {
-            id: 17,
-            src: "/images/experiences-3.png",
-            alt: "2 Nights PACKAGE All Inclusive",
-            country: "Iceland",
-            title: "2 Nights PACKAGE All Inclusive",
-            desc: "À partir de 577€/personne - 3 jours",
-            rating: "5.0",
-            category: "Adventures",
-        },
-        {
-            id: 18,
-            src: "/images/experiences-4.png",
-            alt: "2 Nights PACKAGE All Inclusive",
-            country: "Mongolia",
-            title: "2 Nights PACKAGE All Inclusive",
-            desc: "À partir de 577€/personne - 3 jours",
-            rating: "5.0",
-            category: "Adventures",
-        },
-        {
-            id: 19,
-            src: "/images/experiences-5.png",
-            alt: "2 Nights PACKAGE All Inclusive",
-            country: "Bahrain",
-            title: "2 Nights PACKAGE All Inclusive",
-            desc: "À partir de 577€/personne - 3 jours",
-            rating: "5.0",
-            category: "Adventures",
-        },
-        {
-            id: 20,
-            src: "/images/experiences-6.png",
-            alt: "2 Nights PACKAGE All Inclusive",
-            country: "Bosnia and Herzegovina",
-            title: "2 Nights PACKAGE All Inclusive",
-            desc: "À partir de 577€/personne - 3 jours",
-            rating: "5.0",
-            category: "Adventures",
-        },
-    ];
-
+    
+    const btnTitle = "Pesan";
+    
     const route = useRoute();
-    const selectedId = rooms.filter((r) => r.id == route.params.id)[0];
+    const id = route.params.id;
+    const { data: selectedId } = await useFetch('https://fakestoreapi.com/products/'+id);
+
+    let formatPrice = (price) => {
+        let result = Math.floor(price)
+        return result.toLocaleString('id-ID', { useGrouping: true })
+    };
 
     useHead({
         title: selectedId.title,
     });
+
 </script>

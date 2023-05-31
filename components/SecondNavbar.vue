@@ -1,7 +1,7 @@
 <template>
-    <nav class="parallax fixed flex flex-row justify-between items-center w-full px-6 py-4 z-10 text-white">
+    <nav class="parallax flex flex-row justify-between items-center w-full px-6 py-4 bg-white text-[#484848] shadow">
         <NuxtLink to="/">
-            <img class="w-[28.65px] h-[30.73px]" :src="navBrandSrc" alt="nav-brand">
+            <img class="w-[28.65px] h-[30.73px]" :src="navbarsrc" alt="nav-brand">
         </NuxtLink>
         <div class="hidden md:flex item-center space-x-6">
             <NuxtLink to="/" class="hover:text-[#FF5A5F]">Indonesia (ID)</NuxtLink>
@@ -34,34 +34,12 @@
 </template>
 
 <script setup>
-    import {ref, onMounted, onBeforeUnmount} from 'vue';
+    import { ref } from 'vue';
+    import navbarsrc from "/icons/airbnb-nav-red.png";
 
-    const nav = ref(null);
-    const navBrandSrc = ref('/icons/airbnb-nav.png');
     const isMobileMenuOpen = ref(false);
-
-    const onScroll = () => {
-        if (document.documentElement.scrollTop > 60 || document.body.scrollTop > 60) {
-            nav.value.classList.add('bg-white', 'items-center', 'shadow');
-            nav.value.classList.remove('text-white');
-            navBrandSrc.value = '/icons/airbnb-nav-red.png';
-        } else {
-            nav.value.classList.remove('bg-white', 'items-center', 'shadow');
-            nav.value.classList.add('text-white');
-            navBrandSrc.value = '/icons/airbnb-nav.png';
-        }
-    };
 
     const toggleMobileMenu = () => {
         isMobileMenuOpen.value = !isMobileMenuOpen.value;
     };
-
-    onMounted(() => {
-        nav.value = document.querySelector('nav');
-        window.addEventListener('scroll', onScroll);
-    });
-
-    onBeforeUnmount(() => {
-        window.removeEventListener('scroll', onScroll);
-    });
 </script>

@@ -34,7 +34,9 @@
                     <input type="text" class="w-full h-[48px] border rounded-[2px] text-[#484848] placeholder-[#8F8F8F] text-[16px] font-normal mt-2 px-4 py-4" placeholder="Voyageurs">
                 </div>
                 <div class="float-right mt-6">
-                    <MainCTA :btnTitle="btnTitle" />
+                    <div class="w-[146px]">
+                        <MainCTA :btnTitle="btnTitle" />
+                    </div>                    
                 </div>                
             </div>
         </div>
