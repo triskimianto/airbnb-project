@@ -24,10 +24,10 @@
             </section>
             <!-- data fetch from api -->
             <section id="products" class="mt-[88px]">
-                <h1 class="text-[24px] text-[#484848] font-bold">Products</h1>
+                <h1 class="text-[24px] text-[#484848] font-bold">Products</h1>                
                 <p class="w-full md:w-[571px] leading-[18.75px] text-[16px] text-[#484848] font-light mt-2">Jelajahi daftar produk kami dan temukan solusi yang sempurna untuk meningkatkan gaya hidup Anda.</p>
                 <div class="grid grid-cols-1 md:grid-cols-6 md:gap-4 gap-y-4 md:gap-y-0 mt-6">                    
-                    <mini-card-ver v-for="p in products" :key="p.id" :to="`#`" :src="p.thumbnails" :alt="p.title" :country="p.category" :title="p.title" :desc="p.description" :rating="p.rating" />                                           
+                    <mini-card-ver v-for="p in products" :key="p.id" :to="`#`" :src="p.image" :alt="p.title" :country="p.category" :title="'USD '+p.price" :desc="p.title" :rating="p.rating.rate" />                                           
                 </div>
             </section>
             <section id="houses" class="mt-[88px]">
@@ -63,7 +63,7 @@
 </template>
 
 <script setup>
-    const { data: products } = await useFetch('https://dummyjson.com/products/category/smartphones');
+    const { data: products } = await useFetch('https://fakestoreapi.com/products?limit=6');
     console.log(products);
 
     useHead({
