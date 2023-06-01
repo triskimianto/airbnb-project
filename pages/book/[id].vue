@@ -17,10 +17,10 @@
                 <h1 class="text-[#484848] text-[32px] font-medium leading-9">Ajukan Pemesanan</h1>
             </div>
         </div>
-        <div class="flex w-[1120px] mx-auto pl-[20px] mt-[48px] mb-[64px] xl:mb-[113px]">            
+        <div class="flex w-[1120px] mx-auto pl-[20px] mt-[48px] mb-[64px] xl:mb-[400px]">            
             <div class="w-[560px]">
                 <section>
-                    <div class="flex flex-col">
+                    <!-- <div class="flex flex-col">
                         <h1 class="text-[#484848] text-[22px] font-medium leading-6">Perjalanan Anda</h1>
                         <div class="flex justify-between mt-6">
                             <div>
@@ -40,8 +40,8 @@
                                 <h1 class="text-[#484848] text-[16px] font-medium leading-5 underline">Edit</h1>
                             </div>
                         </div>
-                    </div>
-                    <hr class="mt-6">
+                    </div> -->
+                    <!-- <hr class="h-px bg-gray-200 border-0 mt-6"> -->
                 </section>                
                 <section>
                     <div class="mt-8 mb-6">
@@ -315,7 +315,7 @@
                             </div>
                             <div class="mt-4 mb-4">
                                 <div class="inline-flex items-center justify-center w-full">
-                                    <hr class="w-full border bg-gray-200">
+                                    <hr class="w-full h-px bg-gray-200 border-0">
                                     <span class="absolute bg-white text-[#484848] text-[12px] font-normal leading-4 px-4 ">atau</span>
                                 </div>
                             </div>
@@ -371,56 +371,56 @@
             <div class="w-[466.656px] ml-[93.3281px]">
                 <div class="w-full border border-gray-200 rounded-[12px] p-6">
                     <div class="flex w-full">
-                        <img class="w-[124px] h-[106px] object-contain rounded-[8px]" :src="selectedId.image" alt="">
+                        <img class="w-[124px] h-[106px] object-contain border border-gray-200 rounded-[8px]" :src="selectedId.thumbnail" alt="">
                         <div class="flex flex-col h-[106px] ml-3">
                             <div class="h-[56px]">
-                                <h1 class="text-[#c4c4c4] text-[12px] leading-4">Kamar di rumah liburan</h1>
-                                <h1 class="text-[#484848] text-[14px] leading-[18px] mt-1">Book for id: {{ id }} - {{ selectedId.title }}</h1>
+                                <h1 class="text-[#c4c4c4] text-[12px] leading-4">{{ selectedId.category }}</h1>
+                                <h1 class="text-[#484848] text-[14px] leading-[18px] mt-1">{{ selectedId.brand }} - {{ selectedId.title }}</h1>
                             </div>
                             <div class="flex h-full">
                                 <div class="flex items-end">
                                     <div class="flex items-center gap-x-2">
                                         <div class="flex items-center gap-x-1">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-2.5 h-2.5">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#484848" class="w-2.5 h-2.5">
                                                 <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
                                             </svg>
-                                            <h1 class="text-[#484848] text-[12px] font-normal leading-4">{{ selectedId.rating.rate }}<span class="font-light"> ({{ selectedId.rating.count }} ulasan)</span></h1>
+                                            <h1 class="text-[#484848] text-[12px] font-normal leading-4">{{ selectedId.rating }}<span class="font-light"> (xx ulasan)</span></h1>
                                         </div>                                        
-                                        <div>
+                                        <!-- <div>
                                             <h1>•</h1>
-                                        </div>
-                                        <div class="flex items-center gap-x-1">
+                                        </div> -->
+                                        <!-- <div class="flex items-center gap-x-1">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-2.5 h-2.5">
                                                 <path fill-rule="evenodd" d="M5.166 2.621v.858c-1.035.148-2.059.33-3.071.543a.75.75 0 00-.584.859 6.753 6.753 0 006.138 5.6 6.73 6.73 0 002.743 1.346A6.707 6.707 0 019.279 15H8.54c-1.036 0-1.875.84-1.875 1.875V19.5h-.75a2.25 2.25 0 00-2.25 2.25c0 .414.336.75.75.75h15a.75.75 0 00.75-.75 2.25 2.25 0 00-2.25-2.25h-.75v-2.625c0-1.036-.84-1.875-1.875-1.875h-.739a6.706 6.706 0 01-1.112-3.173 6.73 6.73 0 002.743-1.347 6.753 6.753 0 006.139-5.6.75.75 0 00-.585-.858 47.077 47.077 0 00-3.07-.543V2.62a.75.75 0 00-.658-.744 49.22 49.22 0 00-6.093-.377c-2.063 0-4.096.128-6.093.377a.75.75 0 00-.657.744zm0 2.629c0 1.196.312 2.32.857 3.294A5.266 5.266 0 013.16 5.337a45.6 45.6 0 012.006-.343v.256zm13.5 0v-.256c.674.1 1.343.214 2.006.343a5.265 5.265 0 01-2.863 3.207 6.72 6.72 0 00.857-3.294z" clip-rule="evenodd" />
                                             </svg>
                                             <h1 class="text-[#484848] text-[12px] font-normal leading-4">HosTeladan</h1>
-                                        </div>                                        
+                                        </div>                                         -->
                                     </div>                                    
                                 </div>                                                                
                             </div>                            
                         </div>                        
                     </div>    
-                    <hr class="mt-6">    
+                    <hr class="h-px bg-gray-200 border-0 mt-6">    
                     <div class="mt-6">
-                        <h1 class="text-[#484848] text-[22px] font-medium leading-[26px]">Perjalanan Anda</h1>
+                        <h1 class="text-[#484848] text-[22px] font-medium leading-[26px]">Belanja Anda</h1>
                         <div class="flex justify-between mt-6">
                             <div class="flex gap-x-1">
-                                <h1 class="text-[#484848] text-[16px] font-normal leading-5">Rp {{ formatPrice(selectedId.price * 14996) }}</h1>
+                                <h1 class="text-[#484848] text-[16px] font-normal leading-5">Rp {{ formatPrice(afterDiscount(selectedId.price,selectedId.discountPercentage)) }}</h1>
                                 <h1 class="text-[#484848] text-[16px] font-normal leading-5">x</h1>
-                                <h1 class="text-[#484848] text-[16px] font-normal leading-5">3 malam</h1>
+                                <h1 class="text-[#484848] text-[16px] font-normal leading-5">3 buah</h1>
                             </div>
                             <div class="flex">
-                                <h1 class="text-[#484848] text-[16px] font-normal leading-5">Rp {{ formatPrice(selectedId.price * 14996 * 3) }}</h1>
+                                <h1 class="text-[#484848] text-[16px] font-normal leading-5">Rp {{ formatPrice(afterDiscount(selectedId.price,selectedId.discountPercentage) * 3) }}</h1>
                             </div>                            
                         </div>
-                        <hr class="mt-6">
+                        <hr class="h-px bg-gray-200 border-0 mt-6">
                         <div class="flex justify-between mt-6">
                             <div class="flex gap-x-1">
                                 <h1 class="text-[#484848] text-[16px] font-medium leading-5">Total</h1>
                                 <NuxtLink :to="`#`" class="text-[#484848] text-[16px] font-medium leading-5 underline">(IDR)</NuxtLink>
                             </div>
                             <div class="flex">
-                                <h1 class="text-[#484848] text-[16px] font-medium leading-5">Rp {{ formatPrice(selectedId.price * 14996 * 3) }}</h1>
+                                <h1 class="text-[#484848] text-[16px] font-medium leading-5">Rp {{ formatPrice(afterDiscount(selectedId.price,selectedId.discountPercentage) * 3) }}</h1>
                             </div>                            
                         </div>
                     </div>                                
@@ -442,14 +442,26 @@
 
     const route = useRoute();
     const id = route.params.id;
-    const { data:selectedId } = await useFetch('https://fakestoreapi.com/products/'+id);
+    const { data:selectedId } = await useFetch('https://dummyjson.com/products/'+id);
 
     let formatPrice = (price) => {
         let result = Math.floor(price)
         return result.toLocaleString('id-ID', { useGrouping: true })
     };
 
+    let normalPrice = (price) => {
+        let result = price * 14900
+        return result
+    };
+
+    let afterDiscount = (price, discount) => {
+        let result = normalPrice(price) - ( normalPrice(price) * (discount/100))
+        return result
+    };
+
+    let pageTitle = selectedId.value.brand+' - '+selectedId.value.title;
+
     useHead({
-        title: "Permohonan pemesanan",
+        title: "Permohonan pemesanan - "+pageTitle,
     })
 </script>

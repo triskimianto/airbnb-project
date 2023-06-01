@@ -3,9 +3,11 @@
         <NuxtLayout :name="header"></NuxtLayout>
         <div class="w-[388px] md:w-[1206px] mx-auto my-[88px]">
             <section id="categories">
-                <h1 class="text-[24px] text-[#484848] font-bold">Explorer Airbnb</h1>
+                <h1 class="text-[24px] text-[#484848] font-bold">Kategori</h1>
                 <div class="grid grid-cols-1 md:grid-cols-3 md:gap-4 mt-6 gap-y-4 md:gap-y-0">
-                    <MiniCardHor v-for="f in firstrow" :key="f.id" :to="f.to" :src="f.src" :alt="f.alt" :title="f.title" />                    
+                    <MiniCardHor :to="`#${categories[10]}`" :src="imgMensShirts" :alt="categories[10]" :title="`Pakaian pria`" />                    
+                    <MiniCardHor :to="`#${categories[11]}`" :src="imgMensShoes" :alt="categories[11]" :title="`Sepatu pria`" />                    
+                    <MiniCardHor :to="`#${categories[12]}`" :src="imgMensWatches" :alt="categories[12]" :title="`Jam tangan pria`" />                    
                 </div>                
             </section>
             <section id="secondrow" class="mt-[88px]">
@@ -23,31 +25,24 @@
                 </div>
             </section>
             <!-- data fetch from api -->
-            <section id="products" class="mt-[88px]">
-                <h1 class="text-[24px] text-[#484848] font-bold">Products</h1>                
+            <section id="mens-shirts" class="mt-[88px]">
+                <h1 class="text-[24px] text-[#484848] font-bold">Pakaian pria</h1>                
                 <p class="w-full md:w-[571px] leading-[18.75px] text-[16px] text-[#484848] font-light mt-2">Jelajahi daftar produk kami dan temukan solusi yang sempurna untuk meningkatkan gaya hidup Anda.</p>
-                <div class="grid grid-cols-1 md:grid-cols-6 md:gap-4 gap-y-4 md:gap-y-0 mt-6">                    
-                    <mini-card-ver v-for="p in products" :key="p.id" :to="`/products/${p.id}`" :src="p.image" :alt="p.title" :country="p.category" :title="'USD '+p.price" :desc="p.title" :rating="p.rating.rate" />                                                               
-                </div>        
+                <div class="grid grid-cols-2 md:grid-cols-5 md:gap-4 gap-y-4 md:gap-y-0 mt-6">                    
+                    <mini-card-ver v-for="m in mensShirts.products" :key="m.id" :to="`/products/${m.id}`" :src="m.thumbnail" :alt="m.title" :country="m.category" :title="'Rp '+formatPrice(m.price * 14900)" :desc="m.title" :rating="m.rating" />                                                               
+                </div>   
             </section>
-            <section id="houses" class="mt-[88px]">
-                <h1 class="text-[24px] text-[#484848] font-bold">Découvrez les aventures Airbnb</h1>
-                <p class="w-full md:w-[571px] leading-[18.75px] text-[16px] text-[#484848] font-light mt-2">Voyages de plusieurs jours organisés par des experts locaux avec activités, repas et logements compris</p>
-                <div class="grid grid-cols-1 md:grid-cols-6 md:gap-4 gap-y-4 md:gap-y-0 mt-6">                    
-                    <mini-card-ver v-for="r in houses" :key="r.id" :to="`/rooms/${r.id}`" :src="r.src" :alt="r.alt" :country="r.country" :title="r.title" :desc="r.desc" :rating="r.rating" />                                           
-                </div>
-            </section>
-            <section id="experiences" class="mt-[88px]">
-                <h1 class="text-[24px] text-[#484848] font-bold">Logements dans le monde entier</h1>            
+            <section id="mens-shoes" class="mt-[88px]">
+                <h1 class="text-[24px] text-[#484848] font-bold">Sepatu pria</h1>            
                 <div class="grid grid-cols-1 md:grid-cols-4 md:gap-x-4 gap-y-4 md:gap-y-8 mt-[51px]">            
-                    <ThreeColsCard v-for="r in experiences" :key="r.id" :to="`/rooms/${r.id}`" :src="r.src" :alt="r.alt" :city="r.city" :rating="r.rating" :desc="r.desc" />                    
+                    <ThreeColsCard v-for="m in mensShoes.products" :key="m.id" :to="`/products/${m.id}`" :src="m.thumbnail" :alt="m.title" :city="m.category" :rating="m.rating" :desc="'Rp '+formatPrice(m.price * 14900)+' - '+m.title" />                    
                 </div>
             </section>
-            <section id="adventures" class="mt-[88px]">
-                <h1 class="text-[24px] text-[#484848] font-bold">Expériences très bien notées</h1>
-                <p class="w-full md:w-[571px] leading-[18.75px] text-[16px] text-[#484848] font-light mt-2">Voyages de plusieurs jours organisés par des experts locaux avec activités, repas et logements compris</p>
-                <div class="grid grid-cols-1 md:grid-cols-6 md:gap-4 mt-6">
-                    <mini-card-ver v-for="r in adventures" :key="r.id" :to="`/rooms/${r.id}`" :src="r.src" :alt="r.alt" :country="r.country" :title="r.title" :desc="r.desc" :rating="r.rating" />
+            <section id="mens-watches" class="mt-[88px]">
+                <h1 class="text-[24px] text-[#484848] font-bold">Jam tangan pria</h1>
+                <p class="w-full md:w-[571px] leading-[18.75px] text-[16px] text-[#484848] font-light mt-2">Jelajahi daftar produk kami dan temukan solusi yang sempurna untuk meningkatkan gaya hidup Anda.</p>
+                <div class="grid grid-cols-2 md:grid-cols-5 md:gap-4 mt-6">
+                    <mini-card-ver v-for="m in mensWatches.products" :key="m.id" :to="`/products/${m.id}`" :src="m.thumbnail" :alt="m.title" :country="m.category" :title="'Rp '+formatPrice(m.price * 14900)" :desc="m.title" :rating="m.rating" />
                 </div>
             </section>
             <section id="sixthrow" class="mt-[88px]">
@@ -63,8 +58,21 @@
 </template>
 
 <script setup>
-    const { data: products } = await useFetch('https://fakestoreapi.com/products?limit=6');
-    console.log(products);
+    // const { data: products } = await useFetch('https://fakestoreapi.com/products?limit=6');
+    // console.log(products);
+
+    const { data:categories } = await useFetch('https://dummyjson.com/products/categories');
+    const imgMensShirts = "https://images.unsplash.com/photo-1603252110481-7ba873bf42ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80";
+    const imgMensShoes = "https://images.unsplash.com/photo-1621996659546-b0dd8b7e57af?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80";
+    const imgMensWatches = "https://images.unsplash.com/photo-1619225379807-e9002c44c462?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80";
+    const { data:mensShirts } = await useFetch('https://dummyjson.com/products/category/mens-shirts');
+    const { data:mensShoes } = await useFetch('https://dummyjson.com/products/category/mens-shoes');
+    const { data:mensWatches } = await useFetch('https://dummyjson.com/products/category/mens-watches');
+
+    let formatPrice = (price) => {
+        let result = Math.floor(price)
+        return result.toLocaleString('id-ID', { useGrouping: true })
+    };
 
     useHead({
         title: "Airbnb"

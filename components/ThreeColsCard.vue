@@ -1,5 +1,5 @@
 <template>
-    <NuxtLink :to="to" target="_blank" class="mx-auto w-[289px]">
+    <NuxtLink :to="to" class="mx-auto w-[289px]">
         <div class="w-[289px] h-[200px] overflow-hidden">
             <img class="w-full rounded-[4px] hover:scale-110" :src="src" :alt="alt">
         </div>        
