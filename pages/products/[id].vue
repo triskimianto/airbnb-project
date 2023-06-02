@@ -3,7 +3,7 @@
         <div>
             <SecondNavbar />
         </div>
-        <div class="w-[388px] md:w-[1120px] mx-auto mt-7 mb-10 xl:mb-[232px]">
+        <div class="w-[388px] md:w-[1120px] mx-auto mt-7 mb-[64px]">
             <section>
                 <h1 class="text-[#484848] text-[26px] font-medium leading-[30px]"><span>{{ selectedId.brand }}</span> - {{ selectedId.title }}</h1>
                 <div class="flex flex-row justify-between items-center mt-2">
@@ -117,18 +117,22 @@
                                 <h1 class="text-[#484848] text-[24px] font-medium leading-7">Rp {{ formatPrice(afterDiscount(selectedId.price,selectedId.discountPercentage)) }}</h1>    
                             </div>
                             <hr class="h-px my-6 bg-gray-200 border-0">
-                            <div class="flex mt-6">
+                            <div class="flex flex-col mt-6">
+                                <div class="flex w-full justify-between items-center">
+                                    <h1 class="text-[#484848] text-[16px] font-medium leading-5">Stok total:</h1>                                    
+                                    <h1 class="text-[#484848] text-[16px] font-normal leading-5 px-4 py-2">{{ selectedId.stock }}</h1>                                                                            
+                                </div>
                                 <div class="flex w-full justify-between items-center">
                                     <h1 class="text-[#484848] text-[16px] font-medium leading-5">Jumlah:</h1>
-                                    <div>
-                                        <button class="bg-white hover:bg-gray-200 border border-gray-200 hover:border-gray-300 rounded-l-[4px] px-4 py-2 text-[#484848] text-[16px] font-normal leading-5">-</button>
-                                        <span class=" border-t border-b border-gray-200 px-4 py-2 text-[#484848] text-[16px] font-normal leading-5">1</span>
-                                        <button class="bg-white hover:bg-gray-200 border border-gray-200 hover:border-gray-300 rounded-r-[4px] px-4 py-2 text-[#484848] text-[16px] font-normal leading-5">+</button>
+                                    <div class="border border-gray-200 rounded-[4px]">
+                                        <button class="bg-white hover:bg-gray-100 rounded-l-[4px] text-[#484848] text-[16px] font-normal leading-5 px-4 py-2" @click="decrement">-</button>
+                                        <span class="text-[#484848] text-[16px] font-normal leading-5 px-4 py-2">{{ quantity }}</span>
+                                        <button class="bg-white hover:bg-gray-100 rounded-r-[4px] text-[#484848] text-[16px] font-normal leading-5 px-4 py-2" @click="increment">+</button>
                                     </div>
                                 </div>
                             </div>                    
                             <div class="mt-4">
-                                <MainCTA :to="`/book/${id}`" :btnTitle="btnTitle" />
+                                <MainCTA :to="`/order/${id}`" :btnTitle="btnTitle" />
                             </div>
                         </div>
                     </div>
@@ -138,7 +142,7 @@
                 <hr class="h-px bg-gray-200 border-0 mt-8 mb-6">
                 <div class="flex gap-x-2 items-center">
                     <div class="flex gap-x-1 items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#484848" class="w-6 h-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FF5A5F" class="w-6 h-6">
                             <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
                         </svg>
                         <h1 class="text-[#484848] text-[22px] font-medium leading-[26px]">{{ selectedId.rating }}</h1>
@@ -146,6 +150,37 @@
                     <span class="text-[#484848] text-[22px] font-medium leading-[26px]">·</span>
                     <button class="text-[#484848] text-[22px] font-medium leading-[26px] underline"> Ulasan</button>                                                    
                 </div>             
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                    <div class="flex flex-col">
+                        <div class="flex items-center gap-x-2">
+                            <img class="w-10 h-10 rounded-full" :src="rectSrc" alt="user-picture">
+                            <div>
+                                <h1 class="text-[#484848] text-[16px] font-medium leading-5">User 1</h1>
+                                <h1 class="text-[#767676] text-[12px] font-normal leading-4">Mei 2023</h1>
+                            </div>
+                        </div>
+                        <h1 class="text-[#484848] text-[16px] font-normal leading-5 mt-4">Produk bagus. seller fast respon sesuai pesanan</h1>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="flex items-center gap-x-2">
+                            <img class="w-10 h-10 rounded-full" :src="rectSrc" alt="user-picture">
+                            <div>
+                                <h1 class="text-[#484848] text-[16px] font-medium leading-5">User 2</h1>
+                                <h1 class="text-[#767676] text-[12px] font-normal leading-4">Mei 2023</h1>
+                            </div>
+                        </div>
+                        <h1 class="text-[#484848] text-[16px] font-normal leading-5 mt-4">Produk bagus. seller fast respon sesuai pesanan</h1>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <hr class="h-px bg-gray-200 border-0 mt-6 mb-8">
+                <div class="w-full mt-[48px]">                
+                    <h1 class="text-[#484848] text-[22px] font-medium leading-[26px] mt-6   ">Pilihan lainnya untuk Anda</h1>
+                    <div class="grid grid-cols-2 md:grid-cols-5 md:gap-4 gap-y-4 md:gap-y-0 mt-6">
+                        <MiniCardVer v-for="a in anotherProducts.products" :key="a.id" :to="`/products/${a.id}`" :src="a.thumbnail" :alt="a.title" :country="a.category" :title="'Rp '+formatPrice(a.price * 14900)" :desc="a.title" :rating="a.rating" />
+                    </div>
+                </div>
             </section>
         </div>
         <div>
@@ -163,12 +198,15 @@
 </template>
 
 <script setup>
-    
+    import rectSrc from "/Rectangle 4.png";
+
     const btnTitle = "Pesan";
     
     const route = useRoute();
     const id = route.params.id;
     const { data: selectedId } = await useFetch('https://dummyjson.com/products/'+id);
+
+    const { data: anotherProducts} = await useFetch('https://dummyjson.com/products?limit=5&skip=53')
 
     let formatPrice = (price) => {
         let result = Math.floor(price)
@@ -184,6 +222,18 @@
         let result = normalPrice(price) - ( normalPrice(price) * (discount/100))
         return result
     };
+
+    let quantity = ref(1);
+
+    let decrement = () => {
+        if(quantity.value > 1){
+            quantity.value -= 1;
+        }
+    }
+
+    let increment = () => {
+        quantity.value += 1;
+    }
 
     let pageTitle = selectedId.value.brand+' - '+selectedId.value.title;
     useHead({

@@ -2,7 +2,13 @@
     <div>
         <NuxtLayout :name="header"></NuxtLayout>
         <div class="w-[388px] md:w-[1206px] mx-auto my-[88px]">
-            <section id="categories">
+            <section class="w-full">
+                <h1 class="text-[24px] text-[#FF5A5F] text-center font-bold">Koleksi musim panas pria</h1>
+                <p class="w-full leading-[18.75px] text-[16px] text-[#484848] text-center font-light mt-2">
+                    Tingkatkan gaya Anda di musim panas ini dengan koleksi terbaru kami khusus untuk pria. Hadir dengan pilihan pakaian yang nyaman, trendi, dan tetap terlihat keren di bawah terik matahari. Dari kemeja dengan bahan ringan hingga celana pendek yang stylish, kami memiliki segala yang Anda butuhkan untuk tampil gaya di setiap kesempatan. Jelajahi koleksi musim panas kami sekarang dan hadirkan sentuhan yang segar pada gaya Anda.
+                </p>
+            </section>
+            <section id="categories" class="mt-[88px]">
                 <h1 class="text-[24px] text-[#484848] font-bold">Kategori</h1>
                 <div class="grid grid-cols-1 md:grid-cols-3 md:gap-4 mt-6 gap-y-4 md:gap-y-0">
                     <MiniCardHor :to="`#${categories[10]}`" :src="imgMensShirts" :alt="categories[10]" :title="`Pakaian pria`" />                    
@@ -11,13 +17,13 @@
                 </div>                
             </section>
             <section id="secondrow" class="mt-[88px]">
-                <h1 class="text-[24px] text-[#484848] font-bold">Hébergements Airbnb Plus</h1>
-                <p class="w-full md:w-[571px] leading-[18.75px] text-[16px] text-[#484848] font-light mt-2">Une sélection de logements vérifiés selon des critères de qualité et de design</p>
+                <h1 class="text-[24px] text-[#484848] font-bold">Jelajahi Produk-Produk Terkini</h1>
+                <p class="w-full md:w-[571px] leading-[18.75px] text-[16px] text-[#484848] font-light mt-2">Jelajahi daftar produk kami dan temukan solusi yang sempurna untuk meningkatkan gaya hidup Anda.</p>
                 <div class="relative overflow-hidden mt-6">
                     <div class="absolute z-10 mt-12 md:mt-[65.87px] ml-20 md:ml-[503px]">
-                        <img class="block w-1/2 md:w-[104.5px] md:h-[112.27px] ml-12 md:ml-[47.66px]" src="/icons/airbnb-plus.png" alt="">
+                        <img class="block w-1/2 md:w-[104.5px] md:h-[112.27px] ml-10 md:ml-9" src="/icons/airbnb-plus.png" alt="">
                         <div class="mt-[37.87px]">
-                            <SecondaryCTA :btnTitle="btnTitle" />
+                            <SecondaryCTA :to="`#`" :btnTitle="btnTitle" />
                         </div>
                     </div>
                     <img class="w-full h-[310px] rounded-[4px] object-cover" src="/images/airbnb-plus-1.png" alt="">
@@ -26,20 +32,20 @@
             </section>
             <!-- data fetch from api -->
             <section id="mens-shirts" class="mt-[88px]">
-                <h1 class="text-[24px] text-[#484848] font-bold">Pakaian pria</h1>                
+                <h1 class="text-[24px] text-[#484848] font-bold">Pakaian Pria</h1>                
                 <p class="w-full md:w-[571px] leading-[18.75px] text-[16px] text-[#484848] font-light mt-2">Jelajahi daftar produk kami dan temukan solusi yang sempurna untuk meningkatkan gaya hidup Anda.</p>
                 <div class="grid grid-cols-2 md:grid-cols-5 md:gap-4 gap-y-4 md:gap-y-0 mt-6">                    
                     <mini-card-ver v-for="m in mensShirts.products" :key="m.id" :to="`/products/${m.id}`" :src="m.thumbnail" :alt="m.title" :country="m.category" :title="'Rp '+formatPrice(m.price * 14900)" :desc="m.title" :rating="m.rating" />                                                               
                 </div>   
             </section>
             <section id="mens-shoes" class="mt-[88px]">
-                <h1 class="text-[24px] text-[#484848] font-bold">Sepatu pria</h1>            
+                <h1 class="text-[24px] text-[#484848] font-bold">Sepatu Pria</h1>            
                 <div class="grid grid-cols-1 md:grid-cols-4 md:gap-x-4 gap-y-4 md:gap-y-8 mt-[51px]">            
                     <ThreeColsCard v-for="m in mensShoes.products" :key="m.id" :to="`/products/${m.id}`" :src="m.thumbnail" :alt="m.title" :city="m.category" :rating="m.rating" :desc="'Rp '+formatPrice(m.price * 14900)+' - '+m.title" />                    
                 </div>
             </section>
             <section id="mens-watches" class="mt-[88px]">
-                <h1 class="text-[24px] text-[#484848] font-bold">Jam tangan pria</h1>
+                <h1 class="text-[24px] text-[#484848] font-bold">Jam tangan Pria</h1>
                 <p class="w-full md:w-[571px] leading-[18.75px] text-[16px] text-[#484848] font-light mt-2">Jelajahi daftar produk kami dan temukan solusi yang sempurna untuk meningkatkan gaya hidup Anda.</p>
                 <div class="grid grid-cols-2 md:grid-cols-5 md:gap-4 mt-6">
                     <mini-card-ver v-for="m in mensWatches.products" :key="m.id" :to="`/products/${m.id}`" :src="m.thumbnail" :alt="m.title" :country="m.category" :title="'Rp '+formatPrice(m.price * 14900)" :desc="m.title" :rating="m.rating" />
@@ -80,7 +86,7 @@
 
     const header = "header";
     const footer = "footer";
-    const btnTitle = "Découvrir des logements";
+    const btnTitle = "Jelajahi Sekarang";
 
     let firstrow = [
         {

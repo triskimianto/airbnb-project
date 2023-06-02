@@ -6,8 +6,8 @@
         <div class="hidden md:flex item-center space-x-6">
             <NuxtLink to="/" class="hover:text-[#FF5A5F]">Indonesia (ID)</NuxtLink>
             <NuxtLink to="/" class="hover:text-[#FF5A5F]">IDR</NuxtLink>
-            <NuxtLink to="/" class="hover:text-[#FF5A5F]">Menjadi tuan rumah</NuxtLink>
-            <NuxtLink to="/" class="hover:text-[#FF5A5F]">Ciptekan pengalaman anda</NuxtLink>
+            <!-- <NuxtLink to="/" class="hover:text-[#FF5A5F]">Menjadi tuan rumah</NuxtLink> -->
+            <NuxtLink to="/" class="hover:text-[#FF5A5F]">Produk</NuxtLink>
             <NuxtLink to="/" class="hover:text-[#FF5A5F]">Bantuan</NuxtLink>
             <NuxtLink to="/" class="hover:text-[#FF5A5F]">Registrasi</NuxtLink>
             <NuxtLink to="/" class="hover:text-[#FF5A5F]">Hubungkan</NuxtLink>
@@ -22,8 +22,8 @@
                 <div class="flex flex-col space-y-4 p-4">
                     <NuxtLink to="/">Indonesia (ID)</NuxtLink>
                     <NuxtLink to="/">IDR</NuxtLink>
-                    <NuxtLink to="/">Menjadi Tuan Rumah</NuxtLink>
-                    <NuxtLink to="/">Ciptakan pengalaman anda</NuxtLink>
+                    <!-- <NuxtLink to="/">Menjadi Tuan Rumah</NuxtLink> -->
+                    <NuxtLink to="/">Produk</NuxtLink>
                     <NuxtLink to="/">Bantuan</NuxtLink>
                     <NuxtLink to="/">Registrasi</NuxtLink>
                     <NuxtLink to="/">Hubungkan</NuxtLink>

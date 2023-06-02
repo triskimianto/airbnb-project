@@ -1,7 +1,7 @@
 <template>
     <NuxtLink :to="to" class="mx-auto w-[188px]">
         <div class="w-[188px] h-[240px] overflow-hidden">
-            <img class=" rounded-[4px] block hover:scale-110" :src="src" :alt="alt">
+            <img class="object-contain rounded-[4px] block hover:scale-110" :src="src" :alt="alt">
         </div>
         <div class="my-2">
             <h1 class="text-[10px] text-start text-[#767676] font-bold uppercase">{{ country }}</h1>
