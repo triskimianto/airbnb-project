@@ -132,7 +132,7 @@
                                 </div>
                             </div>                    
                             <div class="mt-4">
-                                <MainCTA :to="`/order/${id}`" :btnTitle="btnTitle" />
+                                <MainCTA :to="{ path: `/order/${id}`, query: { quantity }}" :btnTitle="btnTitle" />
                             </div>
                         </div>
                     </div>
