@@ -223,7 +223,7 @@
         return result
     };
 
-    let quantity = ref(1);
+    let quantity = ref(parseInt(route.query.quantity) || 1);
 
     let decrement = () => {
         if(quantity.value > 1){
