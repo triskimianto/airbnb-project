@@ -1,5 +1,5 @@
 <template>
-    <nav class="parallax fixed flex flex-row justify-between items-center w-full px-6 py-4 z-10 text-white">
+    <nav class="parallax fixed flex flex-row justify-between items-center w-full px-6 py-4 z-20 text-white">
         <NuxtLink to="/">
             <img class="w-[28.65px] h-[30.73px]" :src="navBrandSrc" alt="nav-brand">
         </NuxtLink>
@@ -26,7 +26,7 @@
             <div v-if="isMobileMenuOpen" class="absolute mt-[18px] left-0 w-full bg-white text-[#484848] border-t shadow">
                 <div class="flex flex-col space-y-4 p-4">
                     <NuxtLink class="hover:text-[#FF5A5F] cursor-pointer" @click="showModal = true">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" :fill="searchBtnColor" class="w-6 h-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#484848" class="w-6 h-6">
                             <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z" clip-rule="evenodd" />
                         </svg>
                     </NuxtLink>
@@ -71,12 +71,14 @@
             </div>
             <div v-if="searchResults.length > 0" class="mt-6 px-1.5">
                 <hr class="h-px bg-gray-200 border-0 mb-6">   
-                <NuxtLink :to="`/products/${s.id}`" v-for="s in searchResults" :key="s.id" class="flex w-full justify-between items-center py-1">
-                    <h1 class="w-[350px] text-[#484848] text-[16px] font-medium leading-5">{{ s.title }}</h1>
-                    <div class="w-[120px] h-[60px] border border-gray-200 rounded-[4px] overflow-hidden flex justify-center items-center">
-                        <img class="object-contain" :src="s.thumbnail" :alt="s.title">
-                    </div>
-                </NuxtLink>             
+                <div class="max-h-[200px] overflow-y-auto">
+                    <NuxtLink :to="`/products/${s.id}`" v-for="s in searchResults" :key="s.id" class="flex w-full justify-between items-center py-1">
+                        <h1 class="w-[350px] text-[#484848] text-[16px] font-medium leading-5">{{ s.title }}</h1>
+                        <div class="w-[120px] h-[60px] border border-gray-200 rounded-[4px] overflow-hidden flex justify-center items-center mr-2">
+                            <img class="object-contain" :src="s.thumbnail" :alt="s.title">
+                        </div>
+                    </NuxtLink>             
+                </div>
             </div>
         </div>
     </div>

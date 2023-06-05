@@ -1,7 +1,9 @@
 <template>
     <NuxtLink :to="to" class="mx-auto w-[188px]">
-        <div class="w-[188px] h-[240px] overflow-hidden">
-            <img class="object-contain rounded-[4px] block hover:scale-110" :src="src" :alt="alt">
+        <div class="flex justify-center items-center w-[188px] h-[240px] overflow-hidden">
+            <div class="img-container overflow-hidden hover:rounded-[4px] cursor-pointer">
+                <img class="object-contain rounded-[4px]" :src="src" :alt="alt">
+            </div>
         </div>
         <div class="my-2">
             <h1 class="text-[10px] text-start text-[#767676] font-bold uppercase">{{ country }}</h1>
@@ -27,3 +29,24 @@
         rating: String,
     });
 </script>
+
+<style>
+    .img-container {
+        position: relative;
+    }
+
+    .img-container:hover::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.15); /* Ubah nilai alpha (0.5) sesuai keinginan Anda */
+        z-index: 1;
+    }
+
+    .img-container:hover img {
+        opacity: 0.9; /* Ubah nilai opasitas (0.7) sesuai keinginan Anda */        
+    }
+</style>

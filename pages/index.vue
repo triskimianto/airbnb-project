@@ -20,7 +20,7 @@
                 <h1 class="text-[24px] text-[#484848] font-bold">Jelajahi Produk-Produk Terkini</h1>
                 <p class="w-full md:w-[571px] leading-[18.75px] text-[16px] text-[#484848] font-light mt-2">Jelajahi daftar produk kami dan temukan solusi yang sempurna untuk meningkatkan gaya hidup Anda.</p>
                 <div class="relative overflow-hidden mt-6">
-                    <div class="absolute z-10 mt-12 md:mt-[65.87px] ml-20 md:ml-[503px]">
+                    <div class="absolute z-10 mt-12 md:mt-[65.87px] ml-[104px] md:ml-[503px]">
                         <img class="block w-1/2 md:w-[104.5px] md:h-[112.27px] ml-10 md:ml-9" src="/icons/airbnb-plus.png" alt="">
                         <div class="mt-[37.87px]">
                             <SecondaryCTA :to="`#`" :btnTitle="btnTitle" />
@@ -51,14 +51,19 @@
                     <mini-card-ver v-for="m in mensWatches.products" :key="m.id" :to="`/products/${m.id}`" :src="m.thumbnail" :alt="m.title" :country="m.category" :title="'Rp '+formatPrice(m.price * 14900)" :desc="m.title" :rating="m.rating" />
                 </div>
             </section>
-            <section id="sixthrow" class="mt-[88px]">
+            <!-- <section id="sixthrow" class="mt-[88px]">
                 <h1 class="text-[24px] text-[#484848] font-bold">Destinations Airbnb Plus à la Une</h1>
                 <p class="w-full md:w-[571px] leading-[18.75px] text-[16px] text-[#484848] font-light mt-2">Voyages de plusieurs jours organisés par des experts locaux avec activités, repas et logements compris</p>
                 <div class="grid grid-cols-1 md:grid-cols-3 md:gap-4 mt-6">
                     <FourColsCard v-for="s in sixthrow" :key="s.id" :src="s.src" :alt="s.alt" :plus="s.plus" :desc="s.desc" />                    
                 </div>
-            </section>
+            </section> -->
         </div>
+        <button @click="scrollToTop" id="scrollBtn" class="fixed hidden bottom-16 right-4 bg-[#FF5A5F] hover:bg-[#E55155] rounded-full p-3 shadow">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" class="w-6 h-6">
+                <path fill-rule="evenodd" d="M11.47 2.47a.75.75 0 011.06 0l7.5 7.5a.75.75 0 11-1.06 1.06l-6.22-6.22V21a.75.75 0 01-1.5 0V4.81l-6.22 6.22a.75.75 0 11-1.06-1.06l7.5-7.5z" clip-rule="evenodd" />
+            </svg>
+        </button>
     </div>
     <NuxtLayout :name="footer"></NuxtLayout>
 </template>
@@ -78,6 +83,31 @@
     let formatPrice = (price) => {
         let result = Math.floor(price)
         return result.toLocaleString('id-ID', { useGrouping: true })
+    };
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    };
+
+    onMounted(() => {
+        window.addEventListener('scroll', handleScroll);
+    });
+
+    const handleScroll = () => {
+        const scrollBtn = document.getElementById('scrollBtn');   
+        const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+        // Jarak scroll sebelum tombol muncul (misalnya 300 piksel)
+        const scrollThreshold = 300;
+
+        if (scrollPosition > scrollThreshold) {
+            scrollBtn.classList.remove('hidden');
+        } else {
+            scrollBtn.classList.add('hidden');
+        }
     };
 
     useHead({

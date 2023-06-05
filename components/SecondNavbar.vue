@@ -23,7 +23,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
-            <div v-if="isMobileMenuOpen" class="absolute mt-[18px] left-0 w-full bg-white text-[#484848] border-t shadow">
+            <div v-if="isMobileMenuOpen" class="absolute mt-[18px] left-0 w-full bg-white text-[#484848] border-t shadow z-20">
                 <div class="flex flex-col space-y-4 p-4">
                     <NuxtLink class="hover:text-[#FF5A5F] cursor-pointer" @click="showModal = true">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
@@ -71,12 +71,14 @@
             </div>
             <div v-if="searchResults.length > 0" class="mt-6 px-1.5">
                 <hr class="h-px bg-gray-200 border-0 mb-6">   
-                <NuxtLink :to="`/products/${s.id}`" v-for="s in searchResults" :key="s.id" class="flex w-full justify-between items-center py-1">
-                    <h1 class="w-[350px] text-[#484848] text-[16px] font-medium leading-5">{{ s.title }}</h1>
-                    <div class="w-[120px] h-[60px] border border-gray-200 rounded-[4px] overflow-hidden flex justify-center items-center">
-                        <img class="object-contain" :src="s.thumbnail" :alt="s.title">
-                    </div>
-                </NuxtLink>             
+                <div class="max-h-[200px] overflow-y-auto">
+                    <NuxtLink :to="`/products/${s.id}`" v-for="s in searchResults" :key="s.id" class="flex w-full justify-between items-center py-1">
+                        <h1 class="w-[350px] text-[#484848] text-[16px] font-medium leading-5">{{ s.title }}</h1>
+                        <div class="w-[120px] h-[60px] border border-gray-200 rounded-[4px] overflow-hidden flex justify-center items-center mr-2">
+                            <img class="object-contain" :src="s.thumbnail" :alt="s.title">
+                        </div>
+                    </NuxtLink>             
+                </div>             
             </div>
         </div>
     </div>
