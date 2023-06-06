@@ -284,7 +284,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
                     <div class="flex flex-col">
                         <div class="flex items-center gap-x-2">
-                            <img class="w-10 h-10 rounded-full" :src="rectSrc" alt="user-picture">
+                            <img class="w-10 h-10 rounded-full" :src="userSrc" alt="user-picture">
                             <div>
                                 <h1 class="text-[#484848] text-[16px] font-medium leading-5">User 1</h1>
                                 <h1 class="text-[#767676] text-[12px] font-normal leading-4">Mei 2023</h1>
@@ -294,7 +294,7 @@
                     </div>
                     <div class="flex flex-col">
                         <div class="flex items-center gap-x-2">
-                            <img class="w-10 h-10 rounded-full" :src="rectSrc" alt="user-picture">
+                            <img class="w-10 h-10 rounded-full" :src="userSrc" alt="user-picture">
                             <div>
                                 <h1 class="text-[#484848] text-[16px] font-medium leading-5">User 2</h1>
                                 <h1 class="text-[#767676] text-[12px] font-normal leading-4">Mei 2023</h1>
@@ -413,7 +413,7 @@
 </template>
 
 <script setup>
-    import rectSrc from "/Rectangle 4.png";
+    import userSrc from "/icons/user-icon.png";
 
     const btnTitle = "Pesan";
     

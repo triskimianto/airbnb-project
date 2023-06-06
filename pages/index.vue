@@ -2,7 +2,7 @@
     <div>
         <NuxtLayout :name="header"></NuxtLayout>
         <div class="w-[388px] md:w-[1206px] mx-auto my-[88px]">
-            <section class="w-full">
+            <section class="w-full 2xl:mt-[160px]">
                 <h1 class="text-[24px] text-[#FF5A5F] text-center font-bold">Koleksi musim panas pria</h1>
                 <p class="w-full leading-[18.75px] text-[16px] text-[#484848] text-center font-light mt-2">
                     Tingkatkan gaya Anda di musim panas ini dengan koleksi terbaru kami khusus untuk pria. Hadir dengan pilihan pakaian yang nyaman, trendi, dan tetap terlihat keren di bawah terik matahari. Dari kemeja dengan bahan ringan hingga celana pendek yang stylish, kami memiliki segala yang Anda butuhkan untuk tampil gaya di setiap kesempatan. Jelajahi koleksi musim panas kami sekarang dan hadirkan sentuhan yang segar pada gaya Anda.
@@ -23,7 +23,7 @@
                     <div class="absolute z-10 mt-12 md:mt-[65.87px] ml-[104px] md:ml-[503px]">
                         <img class="block w-1/2 md:w-[104.5px] md:h-[112.27px] ml-10 md:ml-9" src="/icons/airbnb-plus.png" alt="">
                         <div class="mt-[37.87px]">
-                            <SecondaryCTA :to="`#`" :btnTitle="btnTitle" />
+                            <SecondaryCTA :to="`/products`" :btnTitle="btnTitle" />
                         </div>
                     </div>
                     <img class="w-full h-[310px] rounded-[4px] object-cover" src="/images/airbnb-plus-1.png" alt="">
